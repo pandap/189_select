@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+
+namespace _189_select
+{
+    public class contact
+    {
+        public string name ;
+        public string num;
+    }
+
+
+    public partial class Form1 : Form
+    {
+        string fName;
+        string sName;
+        XmlDocument fxml = new XmlDocument();
+        XmlDocument sxml = new XmlDocument();
+        List<string> flist=new List<string> ;
+        
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (fName == null || sName == null)
+                MessageBox.Show("未选择完整");
+            fxml.Load(fName);
+            XmlNode xn = fxml.SelectSingleNode("Contacts");
+            XmlNodeList xnl = xn.ChildNodes;
+            foreach(XmlNode xn1 in xnl)
+            {
+                contact contactperson=new contact ();
+                XmlElement xe=(XmlElement)xn1;
+                contactperson.name=xe.GetAttribute("Name").ToString();
+                contactperson.num=xe.GetAttribute("Starred").ToString();
+                flist<>
+            }
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "选择原文件";
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer);
+            ofd.Filter = "xml|*.xml";
+            ofd.RestoreDirectory = true;
+            ofd.FilterIndex = 1;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                fName = ofd.FileName;
+                textBox1.Text = fName;
+            }
+
+        }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "xml|*.xml";
+            sfd.Title = "保存地址";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                sName = sfd.FileName;
+                textBox2.Text = sName;
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+E:\workspace\C#\189_select\189_select\bin\Debug\189_select.exe
+E:\workspace\C#\189_select\189_select\bin\Debug\189_select.pdb
+E:\workspace\C#\189_select\189_select\obj\x86\Debug\_189_select.Properties.Resources.resources
+E:\workspace\C#\189_select\189_select\obj\x86\Debug\189_select.csproj.GenerateResource.Cache
+E:\workspace\C#\189_select\189_select\obj\x86\Debug\189_select.exe
+E:\workspace\C#\189_select\189_select\obj\x86\Debug\189_select.pdb
+E:\workspace\C#\189_select\189_select\obj\x86\Debug\_189_select.Form1.resources
